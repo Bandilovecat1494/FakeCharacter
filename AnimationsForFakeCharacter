@@ -1,0 +1,18 @@
+local AnimIdle = Instance.new("Animation")
+AnimIdle.AnimationId = "rbxassetid://11837412321"
+local AnimRun_Walk =Instance.new("Animation")
+AnimRun_Walk.AnimationId = "rbxassetid://11837409899"
+local Idle = game.Workspace.FC.Dummy:FindFirstChildOfClass("Humanoid"):LoadAnimation(AnimIdle)
+local Run_Walk = game.Workspace.FC.Dummy:FindFirstChildOfClass("Humanoid"):LoadAnimation(AnimRun_Walk)
+local function onRunning(speed)
+	if speed > 0 then
+		game.Workspace.FC.Dummy.Velocity = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").MoveDirection * 9
+		Run_Walk:Play()
+		Idle:Stop()
+	else
+		Idle:Play()
+		Run_Walk:Stop()
+	end
+end
+
+workspace.Player.Humanoid.Running:Connect(onRunning)

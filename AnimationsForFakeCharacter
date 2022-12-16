@@ -15,4 +15,4 @@ local function onRunning(speed)
 	end
 end
 
-workspace.Player.Humanoid.Running:Connect(onRunning)
+game.Players.LocalPlayer.Character.Humanoid.Running:Connect(onRunning)
